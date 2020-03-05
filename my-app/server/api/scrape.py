@@ -1,6 +1,6 @@
 ## Installed bs4 and requests
 
-## 
+## module imports
 import requests
 from bs4 import BeautifulSoup
 
