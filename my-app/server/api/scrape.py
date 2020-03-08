@@ -16,17 +16,34 @@ src = result.content
 # based on the source variable we created above
 soup = BeautifulSoup(src, 'html.parser')
 soup.prettify()
+
+# Todo
+# Extract Month
+# Append date of month and day
+# probably use an api to convert numerical date to string date
+
 # Store calendar events
 # .calendar-calendar td .inner div, .calendar-calendar td .inner div a
 events= []
-allContent = soup.find_all("a",{"class":"colorbox-load"})
-for a in allContent:
-    print(a.text.strip().encode('utf-8'))
-    events.append(a.text.strip())
-    #print('\n')
-#event_content = allContent.find_all("div",{"class":"views-field views-field-title"})
-#events.append(event_content)
-#print(allContent)
+allContent = soup.find_all("td",{"class":"single-day future"})
+for tr in allContent:
+    row = []
+    # event_name
+    event_name = tr.find("a",{"class":"colorbox-load"})
+    print(event_name.text.strip().encode('utf-8'))
+    row.append(event_name.text.strip())
+    #time 
+    event_time = tr.find("span",{"class":"date-display-start"})
+    print(event_time.text.strip().encode('utf-8'))
+    row.append(event_time.text.strip())
+    # event location
+    event_location = tr.find("div",{"class":"views-field views-field-field-location-1"})
+    print(event_location.text.strip().encode('utf-8'))
+    row.append(event_location.text.strip())
+    # append all content info
+    events.append(row)
+    #print('asdf\n')
+
 
 # make sure webpage is accessible, should get 200 
 # sprint(result.status_code)
