@@ -13,7 +13,7 @@ function App() {
   useEffect(() => {
     fetch('/scrape').then(response => 
       response.json().then(data =>
-        setMenu(data.food)));
+        setMenu(data.events)));
   }, []);
 
   return (

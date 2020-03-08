@@ -5,9 +5,8 @@ main = Blueprint('main', __name__)
 
 @main.route('/scrape',methods=['GET'])
 def get_scrape():
-        food = ['asdf']
-        food = scrapeUTCS()
-        return jsonify({'food' : food})
+        events = scrapeUTCS()
+        return jsonify({'events' : events})
 
 # from scrape import scrapeUTCS
 
