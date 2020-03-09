@@ -1,14 +1,14 @@
 import React from 'react';
 import { List, Header } from "semantic-ui-react";
  
-export const Menu = ({ menu }) => {
+export const Display = ({ scraps }) => {
     return(
       <List>
            { 
-            menu.map((menuItem, index) => {
+            scraps.map((scrapItem, index) => {
                 return(
                     <List.Item key={index}>
-                        <Header>{menuItem}</Header>
+                        <Header>{scrapItem}</Header>
                     </List.Item>
                 )
             })}

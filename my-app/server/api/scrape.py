@@ -26,23 +26,29 @@ soup.prettify()
 # .calendar-calendar td .inner div, .calendar-calendar td .inner div a
 events= []
 allContent = soup.find_all("td",{"class":"single-day future"})
-for tr in allContent:
+for td in allContent:
     row = []
+
+    # nest loop to scrape each item in the day
+    # for item in  td.find_all("div",{"class":"inner"}):
+    #     print(item.find_all("a",{"class":"colorbox-load"}))
+    #     print('\n')
+
     # event_name
-    event_name = tr.find("a",{"class":"colorbox-load"})
+    event_name = td.find("a",{"class":"colorbox-load"})
     print(event_name.text.strip().encode('utf-8'))
     row.append(event_name.text.strip())
     #time 
-    event_time = tr.find("span",{"class":"date-display-start"})
+    event_time = td.find("span",{"class":"date-display-start"})
     print(event_time.text.strip().encode('utf-8'))
     row.append(event_time.text.strip())
     # event location
-    event_location = tr.find("div",{"class":"views-field views-field-field-location-1"})
+    event_location = td.find("div",{"class":"views-field views-field-field-location-1"})
     print(event_location.text.strip().encode('utf-8'))
     row.append(event_location.text.strip())
     # append all content info
     events.append(row)
-    #print('asdf\n')
+    # print('asdf\n')
 
 
 # make sure webpage is accessible, should get 200 

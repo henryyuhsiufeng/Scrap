@@ -1,0 +1,29 @@
+.outer-wrapper {
+    background-color: #DEB887;
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+
+.logo{
+    background-color: #424242;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 7vh;
+    color:white;
+    margin-left: 42.5%;
+    margin-right: 42.5%;
+    /* margin-top: 1.5%; */
+    border-radius: 45px;
+    /* height: 11.5%; */
+    width: 12.5%; 
+}
+
+ .logo-text {
+    text-decoration-color: white;
+} 
+
+.sideBar {
+    height: 15vh;
+    width: auto;
+}

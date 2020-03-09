@@ -4,21 +4,27 @@ import './App.css';
 import { useEffect, useState } from 'react';
 
 // Components
-import {Menu} from './components/Menu';
+import {Display} from './components/Display';
+import Header from './components/Header/Header.js';
+import {ScrapMenu} from './components/Menu/ScrapMenu'
 
 function App() {
-  const [menu, setMenu] = useState([]);
+  const [scraps, setScraps] = useState([]);
 
   // async await does dont work in useEffect
   useEffect(() => {
     fetch('/scrape').then(response => 
       response.json().then(data =>
-        setMenu(data.events)));
+        setScraps(data.events)));
   }, []);
 
   return (
     <div className="App">
-      <Menu menu={menu}/>
+      <Header/>
+      <div>
+        <Display scraps={scraps}/>
+        <ScrapMenu/>
+      </div>
     </div>
   );
 }
