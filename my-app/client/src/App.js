@@ -4,7 +4,6 @@ import './App.css';
 import { useEffect, useState } from 'react';
 
 // Components
-import {Display} from './components/Display';
 import Header from './components/Header/Header.js';
 import {ScrapMenu} from './components/Menu/ScrapMenu'
 
@@ -22,8 +21,7 @@ function App() {
     <div className="App">
       <Header/>
       <div>
-        <Display scraps={scraps}/>
-        <ScrapMenu/>
+        <ScrapMenu scraps={scraps} />
       </div>
     </div>
   );

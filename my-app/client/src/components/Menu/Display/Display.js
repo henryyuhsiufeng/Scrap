@@ -8,7 +8,7 @@ export const Display = ({ scraps }) => {
             scraps.map((scrapItem, index) => {
                 return(
                     <List.Item key={index}>
-                        <Header>{scrapItem}</Header>
+                        <h3>{scrapItem}</h3>
                     </List.Item>
                 )
             })}
